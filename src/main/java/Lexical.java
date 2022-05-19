@@ -140,7 +140,7 @@ public class Lexical {
                     }
                     next = next.substring(j);
                 } else if (Character.isAlphabetic(next.charAt(0)) || next.charAt(0) == '_') {
-                    while (j < next.length() && (Character.isAlphabetic(next.charAt(j)) || next.charAt(j) == '_')) {
+                    while (j < next.length() && (Character.isAlphabetic(next.charAt(j)) || next.charAt(j) == '_' || Character.isDigit(next.charAt(j)))) {
                         j++;
                     }
                     String token = next.substring(0, j);
