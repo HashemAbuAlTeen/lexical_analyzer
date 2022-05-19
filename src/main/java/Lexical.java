@@ -216,4 +216,24 @@ public class Lexical {
         }
         return true;
     }
+
+    public static int getLine(String token , File file){
+        Scanner scanner = null;
+        try {
+            scanner = new Scanner(file);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        //now read the file line by line...
+        int lineNum = 0;
+        while (scanner.hasNextLine()) {
+            String line = scanner.nextLine();
+            lineNum++;
+            if(line.contains(token)) {
+                break;
+            }
+        }
+        return lineNum;
+    }
 }
