@@ -127,7 +127,15 @@ public class Lexical {
                 }
                 int j = 0;
                 if (Character.isDigit(next.charAt(0))) {
+                    boolean dotflag = false;
                     while (j < next.length() && (Character.isDigit(next.charAt(j)) || next.charAt(j) == '.')) {
+                        if(next.charAt(j) == '.'){
+                            if(dotflag){
+                                break;
+                            }
+                            dotflag = true;
+                        }
+
                         j++;
                     }
                     String token = next.substring(0, j);
